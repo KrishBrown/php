@@ -1,7 +1,7 @@
 <?php
     function create_user($login, $password)
     {
-        file_put_contents("/var/www/html/users/".$login.$password);
+        file_put_contents("/var/www/html/users/".$login,$password);
     }
 
     function verif_login($login)
