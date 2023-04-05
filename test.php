@@ -9,21 +9,21 @@
         # USERNAME NOT EMPTY
         if($login=="")
         {
-            echo "You did not enter a username.";
+            printf("You did not enter a username.";
             return 1;
         }
 
         # USERNAME NOT TOO SHORT
         if(strlen($login)<4)
         {
-            echo "Username is too short. It must contain at least 4 alphabetic caracters.";
+            printf("Username is too short. It must contain at least 4 alphabetic caracters.");
             return 2;
         }
 
         # USERNAME NOT TOO LONG
         if(strlen($login)>12)
         {
-            echo "Username is too long. Maximum 12 caracters.";
+            printf("Username is too long. Maximum 12 caracters.");
             return 3;
         }
 
@@ -36,7 +36,7 @@
             if((in_array($login[$i],$array_spec_caracters) == true))
             {
                 $spec=1;
-                echo "Special caracters not allowed in username.";
+                printf("Special caracters not allowed in username.");
                 return 4;
             }
             $i++;
@@ -50,21 +50,21 @@
         # PASSWORD NOT EMPTY
         if($password=="")
         {
-            echo "You did not enter a password.";
+            printf("You did not enter a password.");
             return 5;
         }
             
         # PASSWORD NOT TOO SHORT
         if(strlen($password)<8)
         {
-            echo "Password too short, it must contains at least 8 valid caracters.";
+            printf("Password too short, it must contains at least 8 valid caracters.");
             return 6;
         }
 
         # PASSWORD NOT TOO LONG
         if(strlen($password)>28)
         {
-            echo "Password too long, it must contains 28 caracters at most.";
+            printf("Password too long, it must contains 28 caracters at most.");
             return 6;
         }
 
@@ -77,7 +77,7 @@
             if((in_array($password[$i],$array_spec_caracters) == true))
             {
                 $unauthorizedSpecCaracter=$password[i];
-                echo "Your password contains $unauthorizedSpecCaracter which is an unauthorized special caracter. Please try another password.";
+                printf("Your password contains $unauthorizedSpecCaracter which is an unauthorized special caracter. Please try another password.");
                 return 7;
             }
         }
