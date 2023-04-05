@@ -1,11 +1,3 @@
-Ecrire une fonction d'enregistrement d'utilisateur en PHP
-La fonction prend en paramètre un nom d'utilisateur et un mot de passe
-La fonction créé un fichier portant le nom de l'utilisateur avec le mot de passe dans le fichier
-Lister les cas possibles d'entrées utilisateur
-Ecrire une fonction de test pour chaque entrée possible à la fonction
-Chaque fonction de test fait simplement appel à la fonction d'enregistrement avec une entrée différente
-La fonction return true si la fonction réagit comme souhaité et false si la fonctio ne réagit pas comme souhaité
-Ecrire un script capable de lancer toutes les fonctions de test et faire un rapport listant les fonctions et leur résultat tel que :  fonction_test_xx => true ou function_test_xx => false
 <?php
  	function create_user($login, $password)
     {
@@ -14,96 +6,71 @@ Ecrire un script capable de lancer toutes les fonctions de test et faire un rapp
 
 	function verif_login($login)
 	{
-        #Blank ?
-        if(strlen($login)!=0)
+        # USERNAME NOT EMPTY
+        if(empty($login))
         {
-            /*
-            #Login exists ?
-            $users= ls "/var/www/html/users/"
-            if((preg_match($login,"/var/www/html/users/") != 0)
-            {	*/
-                #Login long enough ?
-                if( strlen($login) > 6)
-                {
-                    #No special caracters ?
-                    $i=0;
-                    $test=1;
-                    $spec=0;
-                    $array=array('^','(',')','"','-','_','{','}','[',']',',','|','¨','£','$','¤','%','*','/','-','+','!','§','/',':',';','?','`','~','&'); 
-                    while($i < strlen($login) && $spec == 0)
-                    {
-                        
-                        if((in_array($login[$i],$array) == true))
-                        {
-                            $spec++;
-                        }
-                        else
-                        {
-                            $i++;
-                        }
-                        
-                    }
-                    if($i >=strlen($login))
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false
-                    }
-                }
-                else
-                {
-                    echo "Username is too short. 6 letters required.";
-                    return false;
-                }
-            //}
-            else
-            {
-                echo "Username already exists. Choose another one";
-                return false;
-            }
+            echo "You did not enter a username.";
+            return 1;
         }
-        else
+
+        # USERNAME NOT TOO SHORT
+        if(strlen($login)<4)
         {
-            echo "Username is blank. Please enter a username";
+            echo "Username is too short. It must contain at least 4 alphabetic caracters.";
+            return 2;
+        }
+
+        # USERNAME NOT TOO LONG
+        if(strlen($login)>12)
+        {
+            echo "Username is too long. Maximum 12 caracters.";
+            return 3;
+        }
+
+        # DOES USERNAME HAS SPECIAL CARACTERS
+        $i=0;
+        $spec=0;
+        $array_spec_caracters=array('^','(',')','"','-','_','{','}','[',']',',','|','¨','£','$','¤','%','*','/','-','+','!','§','/',':',';','?','`','~','&','#',"'");
+        while($i < strlen($login) && $spec == 0)
+        {
+            if((in_array($login[$i],$array_spec_caracters) == true))
+            {
+                    $spec=1;
+                    echo "Special caracters not allowed in username.";
+                    return false
+            }
+            $i++;
         }
     }
 
     function verif_pwd($password)
     {
-        #Password blank ?
-        if(strlen($password)!=0)
+        # PASSWORD NOT EMPTY
+        if(empty($password))
         {
-            #Password long enough ?
-            if(strlen($password)>11)
-            {
-                #Unauthorized caracters ?
-                $i=0;
-                $unauthorizedSpecC=0
-                $array_spec_caracters=array(^,'(',')','"',\,'{','}','[',']','|',¨,¤,%,/,?,'#')
-                while($i < strlen($password) && $unauthorizedSpecC == 0)
-                {
-                    if((in_array($password[$i],$array_spec_caracters) == true))
-                    {
-                        $unauthorizedSpecC=$password[i];
-                    }
-                }
-                if()
-                {
-                    echo "Your password contains $unauthorizedSpecC which is an unauthorized special caracter. Please try another password.";
-                }
-            }
-            else
-            {
-                return false;
-            }
+            echo "You did not enter a password";
+            return 4;
         }
-        else
+        
+        # PASSWORD NOT TOO SHORT
+        if(strlen($password)<8)
         {
-            echo "You can't choose a blank password.";
-            return false;
+            echo "Password too short, it must contains at least 8 valid caracters";
+            return 5;
+        }
+        # DOES PASSWORD HAS UNAUTHORIZED SPECIAL CARACTERS
+        $i=0;
+        $unauthorizedSpecCaracter=0
+        $array_spec_caracters=array(^,'(',')','"',\,'{','}','[',']','|',¨,¤,%,/,?,'#')
+        while($i < strlen($password) && $unauthorizedSpecC == 0)
+        {
+            if((in_array($password[$i],$array_spec_caracters) == true))
+            {
+                $unauthorizedSpecCaracter=$password[i];
+                echo "Your password contains $unauthorizedSpecCaracter which is an unauthorized special caracter. Please try another password.";
+                return 6;
+            }
         }
     }
-	create_user("krish", "brown");
+    create_user("krish", "brown");
 ?>
