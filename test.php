@@ -29,11 +29,11 @@ Ecrire un script capable de lancer toutes les fonctions de test et faire un rapp
                     $i=0;
                     $test=1;
                     $spec=0;
-                    $array_spec_caracters=array(^,'(',')','"',-,_,\,'{','}','[',']',',','|',¨,£,$,¤,%,*,/,-,+,!,§,/,:,;,?,'#',~,&);    
+                    $array=array('^','(',')','"','-','_','{','}','[',']',',','|','¨','£','$','¤','%','*','/','-','+','!','§','/',':',';','?','`','~','&'); 
                     while($i < strlen($login) && $spec == 0)
                     {
                         
-                        if((in_array($login[$i],$array_spec_caracters) == true))
+                        if((in_array($login[$i],$array) == true))
                         {
                             $spec++;
                         }
