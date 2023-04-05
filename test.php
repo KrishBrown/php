@@ -1,13 +1,13 @@
 <?php
- 	function create_user($login, $password)
+    function create_user($login, $password)
     {
- 		file_put_contents("/var/www/html/users/".$login.$password);
- 	}
+        file_put_contents("/var/www/html/users/".$login.$password);
+    }
 
-	function verif_login($login)
-	{
+    function verif_login($login)
+    {
         # USERNAME NOT EMPTY
-        if(empty($login))
+        if($login=="")
         {
             echo "You did not enter a username.";
             return 1;
@@ -30,31 +30,30 @@
         # DOES USERNAME HAS SPECIAL CARACTERS?
         $i=0;
         $spec=0;
-        #$array_spec_caracters=array('^','(',')','"','-','_','{','}','[',']',',','|','¨','£','$','¤','%','*','/','-','+','!','§','/',':',';','?','`','~','&','#',"'");
         $array_spec_caracters=array('^','(',')','"','-','_','{','}','[',']',',','|','¨','£','$','¤','%','*','/','-','+','!','§','/',':',';','?','`','~','&','#',"'");
         while($i < strlen($login) && $spec == 0)
         {
             if((in_array($login[$i],$array_spec_caracters) == true))
             {
-                    $spec=1;
-                    echo "Special caracters not allowed in username.";
-                    return 4;
+                $spec=1;
+                echo "Special caracters not allowed in username.";
+                return 4;
             }
             $i++;
         }
         if($i>=strlen($login))
-            return true;
+        return true;
     }
 
     function verif_pwd($password)
     {
         # PASSWORD NOT EMPTY
-        if(empty($password))
+        if($password=="")
         {
             echo "You did not enter a password.";
             return 5;
         }
-        
+            
         # PASSWORD NOT TOO SHORT
         if(strlen($password)<8)
         {
@@ -71,8 +70,8 @@
 
         # DOES PASSWORD HAS UNAUTHORIZED SPECIAL CARACTERS?
         $i=0;
-        $unauthorizedSpecCaracter=0
-        $array_spec_caracters=array(^,'(',')','"',\,'{','}','[',']','|',¨,¤,%,/,?,'#')
+        $unauthorizedSpecCaracter=0;
+        $array_spec_caracters=array(^,'(',')','"',\,'{','}','[',']','|',¨,¤,%,/,?,'#');
         while($i < strlen($password) && $unauthorizedSpecC == 0)
         {
             if((in_array($password[$i],$array_spec_caracters) == true))
