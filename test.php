@@ -27,9 +27,10 @@
             return 3;
         }
 
-        # DOES USERNAME HAS SPECIAL CARACTERS
+        # DOES USERNAME HAS SPECIAL CARACTERS?
         $i=0;
         $spec=0;
+        #$array_spec_caracters=array('^','(',')','"','-','_','{','}','[',']',',','|','¨','£','$','¤','%','*','/','-','+','!','§','/',':',';','?','`','~','&','#',"'");
         $array_spec_caracters=array('^','(',')','"','-','_','{','}','[',']',',','|','¨','£','$','¤','%','*','/','-','+','!','§','/',':',';','?','`','~','&','#',"'");
         while($i < strlen($login) && $spec == 0)
         {
@@ -37,10 +38,12 @@
             {
                     $spec=1;
                     echo "Special caracters not allowed in username.";
-                    return false
+                    return 4;
             }
             $i++;
         }
+        if($i>=strlen($login))
+            return true;
     }
 
     function verif_pwd($password)
@@ -48,17 +51,25 @@
         # PASSWORD NOT EMPTY
         if(empty($password))
         {
-            echo "You did not enter a password";
-            return 4;
+            echo "You did not enter a password.";
+            return 5;
         }
         
         # PASSWORD NOT TOO SHORT
         if(strlen($password)<8)
         {
-            echo "Password too short, it must contains at least 8 valid caracters";
-            return 5;
+            echo "Password too short, it must contains at least 8 valid caracters.";
+            return 6;
         }
-        # DOES PASSWORD HAS UNAUTHORIZED SPECIAL CARACTERS
+
+        # PASSWORD NOT TOO LONG
+        if(strlen($password)>28)
+        {
+            echo "Password too long, it must contains 28 caracters at most.";
+            return 6;
+        }
+
+        # DOES PASSWORD HAS UNAUTHORIZED SPECIAL CARACTERS?
         $i=0;
         $unauthorizedSpecCaracter=0
         $array_spec_caracters=array(^,'(',')','"',\,'{','}','[',']','|',¨,¤,%,/,?,'#')
@@ -68,7 +79,7 @@
             {
                 $unauthorizedSpecCaracter=$password[i];
                 echo "Your password contains $unauthorizedSpecCaracter which is an unauthorized special caracter. Please try another password.";
-                return 6;
+                return 7;
             }
         }
     }
