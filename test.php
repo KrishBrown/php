@@ -17,10 +17,11 @@ Ecrire un script capable de lancer toutes les fonctions de test et faire un rapp
         #Blank ?
         if(strlen($login)!=0)
         {
+            /*
             #Login exists ?
             $users= ls "/var/www/html/users/"
             if((preg_match($login,"/var/www/html/users/") != 0)
-            {	
+            {	*/
                 #Login long enough ?
                 if( strlen($login) > 6)
                 {
@@ -56,7 +57,7 @@ Ecrire un script capable de lancer toutes les fonctions de test et faire un rapp
                     echo "Username is too short. 6 letters required.";
                     return false;
                 }
-            }
+            //}
             else
             {
                 echo "Username already exists. Choose another one";
@@ -71,31 +72,38 @@ Ecrire un script capable de lancer toutes les fonctions de test et faire un rapp
 
     function verif_pwd($password)
     {
-        #Password long enough ?
-        if(strlen($password)>11)
+        #Password blank ?
+        if(strlen($password)!=0)
         {
-            $i=0;
-            $array_spec_caracters=array(^,'(',')','"',\,'{','}','[',']','|',¨,¤,%,/,?,'#')
-            while($i < strlen($password) && $spec == 0)
+            #Password long enough ?
+            if(strlen($password)>11)
             {
-                        
-                if((in_array($password[$i],$array_spec_caracters) == true))
+                #Unauthorized caracters ?
+                $i=0;
+                $unauthorizedSpecC=0
+                $array_spec_caracters=array(^,'(',')','"',\,'{','}','[',']','|',¨,¤,%,/,?,'#')
+                while($i < strlen($password) && $unauthorizedSpecC == 0)
                 {
-                    
+                    if((in_array($password[$i],$array_spec_caracters) == true))
+                    {
+                        $unauthorizedSpecC=$password[i];
+                    }
                 }
+                if()
+                {
+                    echo "Your password contains $unauthorizedSpecC which is an unauthorized special caracter. Please try another password.";
+                }
+            }
+            else
+            {
+                return false;
             }
         }
         else
         {
+            echo "You can't choose a blank password.";
             return false;
         }
     }
-
 	create_user("krish", "brown");
 ?>
-
-login 
-Non vide
-6 letters minimum
-Inexistant
-Pas de caractères spéciaux
