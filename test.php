@@ -9,7 +9,7 @@
         # USERNAME NOT EMPTY
         if($login=="")
         {
-            printf("You did not enter a username.";
+            printf("You did not enter a username.");
             return 1;
         }
 
