@@ -7,7 +7,7 @@
     $r4=create_user("username","p@ssword1");
 
     if($r1==4 && $r2==4 && $r3==4 && $r4 == 0)
-        printf("true");
+        printf("true\n");
     else
-        printf("false");
+        printf("false\n");
 ?>

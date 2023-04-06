@@ -1,5 +1,5 @@
 <?php
-    printf("test");
+    printf("test\n");
     include("/var/www/html/test.php");
 
     $r1=create_user("aaa","p@ssword1");
@@ -8,7 +8,7 @@
     $r4=create_user("username","p@ssword1");
 
     if($r1==2 && $r2==2 && $r3==2 && $r4 == 0)
-        printf("true");
+        printf("true\n");
     else
-        printf("false");
+        printf("false\n");
 ?>

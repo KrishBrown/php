@@ -5,7 +5,7 @@
     $r2=create_user("username","p@ssword1");
 
     if($r1==0 && $r2==6)
-        printf("true");
+        printf("true\n");
     else
-        printf("false");
+        printf("false\n");
 ?>
