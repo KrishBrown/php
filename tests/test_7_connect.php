@@ -1,13 +1,16 @@
 <?php
-if(connect("usernameka","p@ssword1")==0)
-    printf("true");
+    include("/var/www/html/test.php");
+    
+    $r1=connect("usernameka","p@ssword1");
 
-if(connect("usernameka","p@ssword12")==10)
-    printf("false");
+    $r2=connect("usernameka","p@ssword12");
 
-if(connect("OR='1'","OR ='1'")==12)
-    printf("false");
+    $r3=connect("OR='1'","OR ='1'");
 
-if(connect("okokok","okokok")==11)
-    printf("false");
+    $r4=connect("okokok","okokok");
+   
+    if($r1==0 && $r2==10 && $r3==12 && $r4 == 11)
+        printf("true\n");
+    else
+        printf("false\n");
 ?>
