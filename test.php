@@ -59,7 +59,7 @@ Ecrire un script capable de lancer toutes les fonctions de test et faire un rapp
             return 6;
         }
         else
-            return true;
+            return 0;
         
     }
 
@@ -107,13 +107,13 @@ Ecrire un script capable de lancer toutes les fonctions de test et faire un rapp
         while($i < strlen($password) && ($number==0 && $speC=0))
         {
             $i++;
-            if(in_array($password[$i],['1','2','3','4','5','6','7','8','9']))
+            if(in_array($password[$i],array('1','2','3','4','5','6','7','8','9')))
                 $number=1;
-            if(in_array($password[$i],('^','(',')','"','-','_','{','}','[',']',',','|','¨','£','$','¤','%','*','/','-','+','!','§','/',':',';','?','`','~','&','#',"'")));
+            if(in_array($password[$i],array('^','(',')','"','-','_','{','}','[',']',',','|','¨','£','$','¤','%','*','-','+','!','§','/',':',';','?','`','~','&','#',"'")));
                 $speC=1;
         }
         if($i>=strlen($password))
-            return true;
+            return 0;
         else
             return 5;
     }
