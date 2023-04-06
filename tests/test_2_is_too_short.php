@@ -1,4 +1,5 @@
 <?php
+    printf("test");
     include("/var/www/html/test.php");
 
     $r1=create_user("aaa","p@ssword1");
