@@ -2,7 +2,7 @@
     function create_user($login, $password)
     {
         $verif=verif_login($login)
-        if(($verif!=0)
+        if($verif!=0)
         {
             return $verif;
         }
