@@ -118,7 +118,7 @@
 
     function connect($login, $password)
     {
-        $count=0
+        $count=0;
         while($count<strlen($login)) 
         {
             if($login[$count]=="'" || $login[$count]=="=")
@@ -133,7 +133,7 @@
             $thePassword=file_get_contents("/var/www/html/users/".$login);
             if(md5($password)==$thePassword)
             {
-                printf("You are logged in. Welcome back $login\n");
+                printf("You are logged in. Welcome back $login.\n");
                 return 0;
             }
             else
