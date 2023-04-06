@@ -6,7 +6,7 @@
     $r2=create_user("usernamekrish","p@ssword1");
 
     if($r1==0 && $r2==6)
-        printf("true\n");
+        printf("1=$r1\n2=$r2\ntrue\n");
     else
         printf("false\n");
 ?>
