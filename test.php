@@ -3,7 +3,6 @@
     {
         $verif=verif_login($login)
         if(($verif!=0)
-        
             return $verif;
         $verif=verif_pwd($password)
         if($verif!=0)
