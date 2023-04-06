@@ -56,7 +56,7 @@ Ecrire un script capable de lancer toutes les fonctions de test et faire un rapp
         if(file_exist("/var/www/html/users/".$login))
         {
             printf("Username already used");
-            return 6
+            return 6;
         }
         else
             return true;
