@@ -123,7 +123,6 @@
         {
             if($login[$count]=="'" || $login[$count]=="=")
             {
-                printf("WARNING! SQL INJECTION!\n");
                 return 12;
             }
             $count++;
@@ -133,18 +132,15 @@
             $thePassword=file_get_contents("/var/www/html/users/".$login);
             if(md5($password)==$thePassword)
             {
-                printf("You are logged in. Welcome back $login.\n");
                 return 0;
             }
             else
             {
-                printf("Wrong password\n");
                 return 10; 
             }  
         }
         else
         {
-            printf("This username doesn't exist.\n");
             return 11;
         }
     }
