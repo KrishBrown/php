@@ -88,7 +88,7 @@
         {
             if((in_array($password[$i],$array_spec_caracters) == true))
             {
-                $unauthorizedSpecCaracter=$password[i];
+                $unauthorizedSpecCaracter=$password[$i];
                 return 4;
             }
             $i++;
@@ -106,7 +106,7 @@
                 $speC=1;
             $i++;
         }
-        if($i>=strlen($password) && $speC=1 && $number=1)
+        if($i>=strlen($password) && $speC==1 && $number==1)
             return 0;
         else
             return 5;
