@@ -1,12 +1,12 @@
 <?php
     function create_user($login, $password)
     {
-        $verif=verif_login($login)
+        $verif=verif_login($login);
         if($verif!=0)
         {
             return $verif;
         }
-        $verif=verif_pwd($password)
+        $verif=verif_pwd($password);
         if($verif!=0)
         {
             return $verif;
