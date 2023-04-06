@@ -9,7 +9,7 @@
     $r4=create_user("usernamek9".$rtemp,"p@ssword1");
 
     if($r1==2 && $r2==2 && $r3==2 && $r4 == 0)
-        printf("true\n");
+        printf("1=$r1\n2=$r2\n3=$r3\n4=$r4\ntrue\n");
     else
         printf("false\n");
 ?>
