@@ -1,11 +1,3 @@
-Ecrire une fonction d'enregistrement d'utilisateur en PHP
-La fonction prend en paramètre un nom d'utilisateur et un mot de passe
-La fonction créé un fichier portant le nom de l'utilisateur avec le mot de passe dans le fichier
-Lister les cas possibles d'entrées utilisateur
-Ecrire une fonction de test pour chaque entrée possible à la fonction
-Chaque fonction de test fait simplement appel à la fonction d'enregistrement avec une entrée différente
-La fonction return true si la fonction réagit comme souhaité et false si la fonction ne réagit pas comme souhaité
-Ecrire un script capable de lancer toutes les fonctions de test et faire un rapport listant les fonctions et leur résultat tel que :  fonction_test_xx => true ou function_test_xx => false
 <?php
     function create_user($login, $password)
     {
