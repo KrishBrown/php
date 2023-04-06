@@ -1,13 +1,13 @@
 <?php
 if(connect("usernameka","p@ssword1")==0)
-printf("You are logged in. Welcome back.\n");
+    printf("true");
 
 if(connect("usernameka","p@ssword12")==10)
-printf("Wrong password.\n");
+    printf("false");
 
 if(connect("OR='1'","OR ='1'")==12)
-printf("SQL INJECTION!\n");
+    printf("false");
 
 if(connect("okokok","okokok")==11)
-printf("User doesn't exist\n");
+    printf("false");
 ?>
