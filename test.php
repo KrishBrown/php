@@ -106,6 +106,7 @@
                 $speC=1;
             $i++;
         }
+        printf("i=$i\nspec=$speC\nnumber=$number\n");
         if($i>=strlen($password) && $speC==1 && $number==1)
             return 0;
         else
