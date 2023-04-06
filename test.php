@@ -115,6 +115,7 @@
         else
             return 5;
     }
+    
     function connect($login, $password)
     {
         while($count<strlen($login)) 
@@ -130,11 +131,15 @@
         {
             $thePassword=cat "/var/www/html/users/$login";
             if(md5($password)==$thePassword)
+            {
                 printf("You are logged in. Welcome back $login\n");
                 return 0;
+            }
             else
+            {
                 printf("Wrong password\n");
-                return 10;   
+                return 10; 
+            }  
         }
         else
         {
