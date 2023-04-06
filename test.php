@@ -98,13 +98,14 @@
         $number=0;
         $speC=0;
         $i;
-        while($i<strlen($password) && ($number==0 && $speC=0))
+        while($i<strlen($password) && $number==0 && $speC=0)
         {
-            if(in_array($password[$i],array('1','2','3','4','5','6','7','8','9')))
+            $number_array=array('1','2','3','4','5','6','7','8','9');
+            if(in_array($password[$i],number))
                 $number=1;
 
             $specChar=array('@','$','%','*','.','-','+','_');
-            if(in_array($password[$i],$specChar));
+            if(in_array($password[$i],$specChar))
                 $speC=1;
             $i++;
         }
