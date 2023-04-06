@@ -53,7 +53,7 @@ Ecrire un script capable de lancer toutes les fonctions de test et faire un rapp
         
         # DOES USER EXIST?
 
-        if(ls /var/www/html/users/ | grep $login)
+        if(file_exist("/var/www/html/users/".$login))
         {
             printf("Username already used");
             return 6
