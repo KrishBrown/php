@@ -1,8 +1,16 @@
 <?php
     function create_user($login, $password)
     {
-        if((verif_login($login)==0)&& (verif_pwd($password)==0))
+        $verif=verif_login($login)
+        if(($verif!=0)
+        
+            return $verif;
+        $verif=verif_pwd($password)
+        if($verif!=0)
+            return $verif;
+
         file_put_contents("/var/www/html/users/".$login,$password);
+        return 0;
     }
 
     function verif_login($login)
