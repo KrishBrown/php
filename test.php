@@ -97,10 +97,10 @@
         # PASSWORD NOT STRONG ENOUGH
         $number=0;
         $speC=0;
-        $i;
-        while($i<strlen($password) && $number==0 && $speC=0)
+        $i=0;
+        while($i<strlen($password) && $number==0 && $speC==0)
         {
-            $number_array=array('1','2','3','4','5','6','7','8','9');
+            $number_array=array('1','2','3','4','5','6','7','8','9','0');
             if(in_array($password[$i],number))
                 $number=1;
 
@@ -115,5 +115,6 @@
         else
             return 5;
     }
+    $r1=create_user("","p@ssword1");
     create_user("krish", "brown");
 ?>
