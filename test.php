@@ -148,5 +148,3 @@
             return 11;
         }
     }
-    create_user("Krishbrown","P@ssword1");
-    connect("Krshbrown","P@ssword1");
