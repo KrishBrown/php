@@ -98,7 +98,7 @@
         $number=0;
         $speC=0;
         $i;
-        while($i < strlen($password) && ($number==0 && $speC=0))
+        while($i<strlen($password) && ($number==0 && $speC=0))
         {
             if(in_array($password[$i],array('1','2','3','4','5','6','7','8','9')))
                 $number=1;
@@ -106,7 +106,7 @@
                 $speC=1;
             $i++;
         }
-        if($i>=strlen($password))
+        if($i>=strlen($password) && $speC=1 && $number=1)
             return 0;
         else
             return 5;
