@@ -101,7 +101,7 @@
         while($i<strlen($password) && $number==0 && $speC==0)
         {
             $number_array=array('1','2','3','4','5','6','7','8','9','0');
-            if(in_array($password[$i],$number))
+            if(in_array($password[$i],$number_array))
                 $number=1;
 
             $specChar=array('@','$','%','*','.','-','+','_');
