@@ -9,6 +9,7 @@ Ecrire un script capable de lancer toutes les fonctions de test et faire un rapp
 <?php
     function create_user($login, $password)
     {
+        if(verif_login($login)&& verif($password))
         file_put_contents("/var/www/html/users/".$login,$password);
     }
 
@@ -52,7 +53,7 @@ Ecrire un script capable de lancer toutes les fonctions de test et faire un rapp
         
         # DOES USER EXIST?
 
-        if(file_exist("/var/www/html/users/".$login))
+        if(ls /var/www/html/users/ | grep $login)
         {
             printf("Username already used");
             return 6
