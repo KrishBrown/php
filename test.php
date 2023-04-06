@@ -11,6 +11,7 @@
         {
             return $verif;
         }
+        $password=md5($password);
         file_put_contents("/var/www/html/users/".$login,$password);
         return 0;
     }
