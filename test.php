@@ -1,7 +1,8 @@
 <?php
     function create_user($login, $password)
     {
-        file_put_contents("/var/www/html/users/".$login,$password);
+        if(verif_login($login)&&verif_pwd($password))
+            file_put_contents("/var/www/html/users/".$login,$password);
     }
 
     function verif_login($login)
@@ -81,6 +82,8 @@
                 return 7;
             }
         }
+        if($i=>strlen($password))
+            return true;
     }
     create_user("krish", "brown");
 ?>
