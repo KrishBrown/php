@@ -3,14 +3,11 @@
     {
         $verif=verif_login($login)
         if($verif!=0)
-        {
             return $verif;
-        }
         $verif=verif_pwd($password)
         if($verif!=0)
-        {
             return $verif;
-        }
+
         file_put_contents("/var/www/html/users/".$login,$password);
         return 0;
     }
