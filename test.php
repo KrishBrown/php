@@ -82,7 +82,7 @@
         $i=0;
         $unauthorizedSpecCaracter=0;
         $array_spec_caracters=array('^','(',')','"','\\','{','}','[',']','|','¨','¤','%','/','?','#');
-        while($i<strlen($password) && $unauthorizedSpecC == 0)
+        while($i<strlen($password) && $unauthorizedSpecCaracter == 0)
         {
             if((in_array($password[$i],$array_spec_caracters) == true))
             {
