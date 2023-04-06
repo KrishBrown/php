@@ -53,7 +53,7 @@ Ecrire un script capable de lancer toutes les fonctions de test et faire un rapp
         
         # DOES USER EXIST?
 
-        if(file_exist("/var/www/html/users/".$login))
+        if(file_exists("/var/www/html/users/".$login))
         {
             printf("Username already used");
             return 6;
@@ -90,7 +90,7 @@ Ecrire un script capable de lancer toutes les fonctions de test et faire un rapp
         $i=0;
         $unauthorizedSpecCaracter=0;
         $array_spec_caracters=array('^','(',')','"','\\','{','}','[',']','|','¨','¤','%','/','?','#');
-        while($i < strlen($password) && $unauthorizedSpecC == 0)
+        while($i<strlen($password) && $unauthorizedSpecC == 0)
         {
             if((in_array($password[$i],$array_spec_caracters) == true))
             {
