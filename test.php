@@ -118,6 +118,7 @@
 
     function connect($login, $password)
     {
+        $count=0
         while($count<strlen($login)) 
         {
             if($login[$count]=="'" || $login[$count]=="=")
@@ -146,8 +147,6 @@
             printf("This username doesn't exist.\n");
             return 11;
         }
-        $count=0
-        
     }
     create_user(Krishbrown,P@ssword1);
     connect(Krshbrown,P@ssword1);
