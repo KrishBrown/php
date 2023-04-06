@@ -32,7 +32,7 @@
         $i=0;
         $spec=0;
         $array_spec_caracters=array('^','(',')','"','-','_','{','}','[',']',',','|','¨','£','$','¤','%','*','/','-','+','!','§','/',':',';','?','`','~','&','#',"'",'@');
-        while($i < strlen($login) && $spec == 0)
+        while($i<strlen($login) && $spec == 0)
         {
             if((in_array($login[$i],$array_spec_caracters) == true))
             {
@@ -90,6 +90,7 @@
                 printf("Your password contains $unauthorizedSpecCaracter which is an unauthorized special caracter. Please try another password.");
                 return 4;
             }
+            $i++;
         }
 
         # PASSWORD NOT STRONG ENOUGH
@@ -98,11 +99,11 @@
         $i;
         while($i < strlen($password) && ($number==0 && $speC=0))
         {
-            $i++;
             if(in_array($password[$i],array('1','2','3','4','5','6','7','8','9')))
                 $number=1;
             if(in_array($password[$i],array('^','(',')','"','-','_','{','}','[',']',',','|','¨','£','$','¤','%','*','-','+','!','§','/',':',';','?','`','~','&','#',"'")));
                 $speC=1;
+            $i++;
         }
         if($i>=strlen($password))
             return 0;
