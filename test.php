@@ -129,7 +129,7 @@
         }
         if(file_exists("/var/www/html/users/".$login))
         {
-            $thePassword=cat "/var/www/html/users/$login";
+            $thePassword=cat "/var/www/html/users/.$login";
             if(md5($password)==$thePassword)
             {
                 printf("You are logged in. Welcome back $login\n");
